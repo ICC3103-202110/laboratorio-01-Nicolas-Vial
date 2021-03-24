@@ -56,8 +56,14 @@ def check(array,x1,y1,x2,y2):
     
 
 #Ask main parameters
+print("\nWELCOME TO MEMORIZE!! \n")
 N_players=int(input("Set the number of players: "))
 N_cards=int(input("Set the number of cards: "))
+points=[]
+counter=0
+while counter<N_players:
+    points.append(0)
+    counter+=1
 
 #Build primary array of numbers
 cards_array=[]
@@ -110,15 +116,24 @@ while len(solved_cards)-N_cards!=0:
     	else:
     		player+=1
     else:
+        
     	solved_cards.append(vertical[ver1][hor1])
     	vertical[ver1][hor1]=""
     	vertical[ver2][hor2]=""
-        
-    
+  
+    if check(vertical, hor1,ver1,hor2,ver2) == True:
+        points[player-1]=points[player-1]+1   
+       
     play+=1
 dashboard(vertical,player,-1,-1,-1,-1)    
     
-print("\nCONGRATULATIONS PLAYER N° "+str(player)+"\n\nGAME OVER")
+print("\n\nGAME OVER\n\nThe scores are the following:\n\n")
+value=0
+while value <len(points):
+    print("Player N° "+str(value+1)+": "+str(points[value])+"\n")
+    value+=1
+print("\n\nCONGRATULATIONS PLATER N°"+str(points.index(max(points))+1))
+
 
 
 
