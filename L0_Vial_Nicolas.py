@@ -132,7 +132,7 @@ value=0
 while value <len(points):
     print("Player N° "+str(value+1)+": "+str(points[value])+"\n")
     value+=1
-print("\n\nCONGRATULATIONS PLATER N°"+str(points.index(max(points))+1))
+print("\n\nCONGRATULATIONS PLAYER N°"+str(points.index(max(points))+1))
 
 
 
